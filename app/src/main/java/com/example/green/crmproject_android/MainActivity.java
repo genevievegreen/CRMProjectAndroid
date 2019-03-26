@@ -6,9 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
+import TaskPackage.Task;
+import TaskPackage.TaskList;
+
 public class MainActivity extends AppCompatActivity {
+
+    private static final String EXTRA_NAME = "com.example.green.crmproject_android";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
         Button bContacts = findViewById(R.id.buttonContacts);
         Button bTasks = findViewById(R.id.buttonTasks);
 
+
+
+
+
+
+        /*EVERYTHING BELOW IS BUTTON ONCLICK STUFF*/
 
         //-----------------------------------------------------------------
         //When Button is pressed, it will move to Calendar activity
@@ -56,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TasksActivity.class);
-                //intent.putExtra()             <-- this is where you would pass whatever variables to new activity
+                //intent.putExtra(EXTRA_NAME, (Serializable) taskList);        //<-- this is where you would pass whatever variables to new activity
                 startActivity(intent);
             }
 
