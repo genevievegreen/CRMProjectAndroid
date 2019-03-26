@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CRMProject-Android</string>
+    <string name="button_contacts">Contacts</string>
+    <string name="button_tasks">Tasks</string>
+    <string name="button_calendar">Calendar</string>
+    <string name="title_activity_calendar">CalendarActivity</string>
+</resources>
