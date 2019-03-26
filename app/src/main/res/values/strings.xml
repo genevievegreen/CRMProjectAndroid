@@ -4,4 +4,7 @@
     <string name="button_tasks">Tasks</string>
     <string name="button_calendar">Calendar</string>
     <string name="title_activity_calendar">CalendarActivity</string>
+
+    <string name="button_addtask">Add Task</string>
+    <string name="hint_TaskAdd">Enter Task Here</string>
 </resources>
