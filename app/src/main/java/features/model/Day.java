@@ -17,8 +17,7 @@ public class Day {
     // Constructor.
     public Day(Calendar c) {
         this.day = c;
-        this.daysDate = day.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US) + " " + day.get(Calendar.DAY_OF_MONTH)
-                + ", " + day.get(Calendar.YEAR);
+        setDaysDate();
         this.daysEvents = new EventList("Events on " + daysDate);
     }
     

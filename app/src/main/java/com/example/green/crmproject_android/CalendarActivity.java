@@ -6,13 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import features.model.CurrentWeek;
+
 public class CalendarActivity extends AppCompatActivity {
+
+    public static final String EXTRA_MESSAGE = "com.example.green.crmproject_android.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-
 
         // Buttons for this screen.
         Button bDisplayWeek = findViewById(R.id.buttonDisplayWeek);
@@ -25,7 +28,7 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CalendarActivity.this, DisplayWeekActivity.class);
-                //intent.putExtra();
+                //intent.putExtra(EXTRA_MESSAGE, currentWeek.getCurrentWeek());
                 startActivity(intent);
             }
         });
