@@ -74,4 +74,6 @@ public class RecyclerViewAdapter_Tasks extends RecyclerView.Adapter<RecyclerView
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+
+
 }
