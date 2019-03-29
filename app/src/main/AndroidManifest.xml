@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddEventActivity"></activity>
-        <activity android:name=".DisplayEventsActivity" />
-        <activity android:name=".DisplayWeekActivity" />
+        <activity
+            android:name=".AddEventActivity"
+            android:label="Calendar"
+            android:parentActivityName=".CalendarActivity"/>
+        <activity
+            android:name=".DisplayWeekActivity"
+            android:label="Calendar"
+            android:parentActivityName=".CalendarActivity"/>
         <activity
             android:name=".TasksActivity"
             android:label="Tasks"
@@ -24,6 +29,10 @@
             android:name=".CalendarActivity"
             android:label="Calendar"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DisplayEventsActivity"
+            android:label="Calendar"
+            android:parentActivityName=".CalendarActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
