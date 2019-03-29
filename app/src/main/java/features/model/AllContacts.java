@@ -42,4 +42,15 @@ public class AllContacts {
     public int getContactListSize() {
         return allcontacts.size();
     }
+
+    public Contact contactSearch(String contact) {
+        Contact c = null;
+        for (int i = 0; i < allcontacts.size(); i++) {
+            if (allcontacts.get(i).getName() == contact) {
+                c = allcontacts.get(i);
+            }
+        }
+        return c;
+    }
+
 }
