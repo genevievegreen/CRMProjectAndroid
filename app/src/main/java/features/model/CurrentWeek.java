@@ -12,7 +12,7 @@ import java.util.*;
  * @author andrea
  */
 public class CurrentWeek {
-    Day today, day2, day3, day4, day5, day6, day7; // Days for the week.
+    Day today; // Today's Day.
     List<Day> currentWeek;     // List to hold Days of the week.
     
     final int MAX_DAYS_IN_WEEK = 7; // Max size of currentWeek list.
@@ -24,26 +24,11 @@ public class CurrentWeek {
         
         Calendar c = new GregorianCalendar();
         today = new Day(c);
-        c.roll(Calendar.DAY_OF_MONTH, true);
-        day2 = new Day(c);
-        c.roll(Calendar.DAY_OF_MONTH, true);
-        day3 = new Day(c);
-        c.roll(Calendar.DAY_OF_MONTH, true);
-        day4 = new Day(c);
-        c.roll(Calendar.DAY_OF_MONTH, true);
-        day5 = new Day(c);
-        c.roll(Calendar.DAY_OF_MONTH, true);
-        day6 = new Day(c);
-        c.roll(Calendar.DAY_OF_MONTH, true);
-        day7 = new Day(c);
-        
         currentWeek.add(today);
-        currentWeek.add(day2);
-        currentWeek.add(day3);
-        currentWeek.add(day4);
-        currentWeek.add(day5);
-        currentWeek.add(day6);
-        currentWeek.add(day7);
+        for (int i = 0; i < 6; i++) {
+            c.add(Calendar.DAY_OF_MONTH, 1);
+            currentWeek.add(new Day(c));
+        }
     }
     
     // Getter for today.
