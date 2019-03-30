@@ -6,13 +6,16 @@
 package features.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 // EventList will be a class that stores a list of Events.
-public class EventList {
+public class EventList implements Parcelable {
     
     String listDesc;        // Description of the list of Events.
     List<Event> eventList;      // Declare List of Events called eventList.
@@ -24,7 +27,25 @@ public class EventList {
         this.eventList = new ArrayList<>();
         this.listSize = 0;
     }
-    
+
+    // Assuming these are correct for Parcelable...
+    protected EventList(Parcel in) {
+        listDesc = in.readString();
+        listSize = in.readInt();
+    }
+
+    public static final Creator<EventList> CREATOR = new Creator<EventList>() {
+        @Override
+        public EventList createFromParcel(Parcel in) {
+            return new EventList(in);
+        }
+
+        @Override
+        public EventList[] newArray(int size) {
+            return new EventList[size];
+        }
+    };
+
     // Getter for listDesc.
     public String getListDesc() {
         return listDesc;
@@ -56,6 +77,17 @@ public class EventList {
     public void removeEvent(int i) {
         eventList.remove(i);
         listSize--;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(listDesc);
+        dest.writeInt(listSize);
     }
 
     /*
