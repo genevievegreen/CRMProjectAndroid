@@ -15,6 +15,9 @@ public class TaskList {
         list.add(x);
     }
 
+    public void deleteTask(int position) {
+        list.remove(position);
+    }
 
     public String get(int position) {
         return list.get(position).getDesc();
@@ -23,4 +26,5 @@ public class TaskList {
     public int size() {
         return list.size();
     }
+
 }
