@@ -26,7 +26,9 @@ public class DisplayWeekActivity extends AppCompatActivity implements RecyclerVi
 
         Intent intent = getIntent();
         currentWeek = (CurrentWeek) intent.getParcelableExtra("com.example.green.crmproject_android.MESSAGE");
-
+        for (Day d : currentWeek.getCurrentWeek()) {
+            Log.d(TAG, d.getDaysDate());
+        }
 
         Log.d(TAG, "In DisplayWeekActivity");
 
