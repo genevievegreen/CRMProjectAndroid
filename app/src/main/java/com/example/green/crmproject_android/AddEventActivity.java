@@ -72,6 +72,7 @@ public class AddEventActivity extends AppCompatActivity implements AdapterView.O
                 e = new Event(name, c, wantReminder);
                 testList.addEvent(e);
                 Log.d(TAG, testList.getEventFromList(0).getEventName());
+                finish();
             }
         });
         // set up switch

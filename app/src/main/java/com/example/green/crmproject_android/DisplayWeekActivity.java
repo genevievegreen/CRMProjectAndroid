@@ -18,6 +18,7 @@ public class DisplayWeekActivity extends AppCompatActivity implements RecyclerVi
     public static CurrentWeek currentWeek;
 
     private final String TAG = "TAG";
+    public static final String EXTRA_MESSAGE = "com.example.green.crmproject_android.CURRENTWEEK";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,11 @@ public class DisplayWeekActivity extends AppCompatActivity implements RecyclerVi
         setContentView(R.layout.activity_display_week);
 
         Intent intent = getIntent();
-        currentWeek = (CurrentWeek) intent.getParcelableExtra("com.example.green.crmproject_android.MESSAGE");
-        for (Day d : currentWeek.getCurrentWeek()) {
+        currentWeek = (CurrentWeek) intent.getParcelableExtra(EXTRA_MESSAGE);
+        /*for (Day d : currentWeek.getCurrentWeek()) {
             Log.d(TAG, d.getDaysDate());
-        }
+        }*/
+        Log.d(TAG, currentWeek.getDayInWeek(6).getDaysDate());
 
         Log.d(TAG, "In DisplayWeekActivity");
 

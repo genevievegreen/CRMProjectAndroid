@@ -32,6 +32,8 @@ public class EventList implements Parcelable {
     protected EventList(Parcel in) {
         listDesc = in.readString();
         listSize = in.readInt();
+        //*******************
+        eventList = in.createTypedArrayList(Event.CREATOR);
     }
 
     public static final Creator<EventList> CREATOR = new Creator<EventList>() {

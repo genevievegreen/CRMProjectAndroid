@@ -35,7 +35,8 @@ public class CurrentWeek implements Parcelable {
     }
 
     protected CurrentWeek(Parcel in) {
-        //Does anything need to go in here?
+        //Does anything need to go in here?**************
+        currentWeek = in.createTypedArrayList(Day.CREATOR);
     }
 
     public static final Creator<CurrentWeek> CREATOR = new Creator<CurrentWeek>() {

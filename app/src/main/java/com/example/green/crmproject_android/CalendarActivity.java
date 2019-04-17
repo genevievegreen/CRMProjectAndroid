@@ -15,7 +15,7 @@ import features.model.Event;
 
 public class CalendarActivity extends AppCompatActivity {
 
-    public static final String EXTRA_MESSAGE = "com.example.green.crmproject_android.MESSAGE";
+    public static final String EXTRA_MESSAGE = "com.example.green.crmproject_android.CURRENTWEEK";
 
     public static CurrentWeek currentWeek;
     private final String TAG = "TAG";
