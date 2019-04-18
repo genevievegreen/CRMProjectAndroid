@@ -1,14 +1,17 @@
 package com.example.green.crmproject_android;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.List;
 
+import TaskPackage.Task;
 import TaskPackage.TaskList;
 
 public class RecyclerViewAdapter_Tasks extends RecyclerView.Adapter<RecyclerViewAdapter_Tasks.ViewHolder> {
@@ -16,6 +19,8 @@ public class RecyclerViewAdapter_Tasks extends RecyclerView.Adapter<RecyclerView
     private TaskList mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+    private Task mRecentlyDeletedItem;
+    private int mRecentlyDeletedItemPosition;
 
     // data is passed into the constructor
     RecyclerViewAdapter_Tasks(Context context, TaskList data) {
@@ -47,10 +52,12 @@ public class RecyclerViewAdapter_Tasks extends RecyclerView.Adapter<RecyclerView
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView myTextView;
+        CheckBox myCheckBox;
 
         ViewHolder(View itemView) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.tvListDesc);
+            myCheckBox = itemView.findViewById(R.id.cbCheckBox);
             itemView.setOnClickListener(this);
         }
 
@@ -75,5 +82,16 @@ public class RecyclerViewAdapter_Tasks extends RecyclerView.Adapter<RecyclerView
         void onItemClick(View view, int position);
     }
 
+    public void deleteItem(int position) {
+        //mRecentlyDeletedItem = mData.getTask(position);
+        //mRecentlyDeletedItemPosition = position;
+        mData.deleteTask(position);
+        notifyItemRemoved(position);
+    }
+
+
+    public Context getContext() {
+        return mInflater.getContext();
+    }
 
 }

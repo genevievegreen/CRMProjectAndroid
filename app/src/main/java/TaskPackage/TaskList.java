@@ -23,6 +23,10 @@ public class TaskList {
         return list.get(position).getDesc();
     }
 
+    public Task getTask(int position) {
+        return list.get(position);
+    }
+
     public int size() {
         return list.size();
     }

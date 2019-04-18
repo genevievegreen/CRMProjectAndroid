@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -75,6 +76,8 @@ public class TasksActivity extends AppCompatActivity  implements RecyclerViewAda
         adapter = new RecyclerViewAdapter_Tasks(this, list);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new Task_Swiper(adapter));
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
     }
 
