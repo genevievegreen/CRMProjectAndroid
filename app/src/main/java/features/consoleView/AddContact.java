@@ -4,7 +4,9 @@
 */
 package features.consoleView;
 
-import static consoleKit.Console.STDIN; 
+import java.io.IOException;
+
+import static consoleKit.Console.STDIN;
 import consoleKit.MenuItem;
 import features.model.AllContacts; 
 import features.model.Contact;
@@ -21,7 +23,7 @@ public class AddContact implements MenuItem{
     public AddContact(AllContacts cons){
         contacts = cons; }
 
-    public void execute(){
+    public void execute() throws IOException {
         System.out.print("Enter the name of the new contact: ");
         String name = STDIN.next();
         System.out.print("Enter the phone number of the new contact: "); 

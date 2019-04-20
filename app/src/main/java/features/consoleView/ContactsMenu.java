@@ -10,8 +10,8 @@ import consoleKit.MenuStack;
 import consoleKit.QuitCMD;
 import consoleKit.ReturnFromMenu; import features.model.AllContacts; import features.model.ContactList; import features.model.EventList;
 /** *
-* @author abbypetersen
-*/
+ * @author abbypetersen
+ */
 public class ContactsMenu implements MenuItem {
 
     private final MenuStack menus;
@@ -19,20 +19,23 @@ public class ContactsMenu implements MenuItem {
 
 
     public ContactsMenu(MenuStack menus, AllContacts contactslist) {
-         this.menus = menus;
-         this.contacts = contactslist;
+        this.menus = menus;
+        this.contacts = contactslist;
     }
-    
+
     public void execute(){
-    // add new menu for this list
-        Menu subMenu = new Menu("Contacts Submenu", menus); 
+        // add new menu for this list
+        Menu subMenu = new Menu("Contacts Submenu", menus);
         subMenu.add(new QuitCMD());
-        subMenu.add(new ReturnFromMenu("Main Menu", menus)); 
-        subMenu.add(new DisplayContacts(contacts)); 
+        subMenu.add(new ReturnFromMenu("Main Menu", menus));
+        subMenu.add(new DisplayContacts(contacts));
         subMenu.add(new AddContact(contacts));
+        subMenu.add(new ContactSearch(contacts));
     }
-    
+
     // Description of this command @Override
     public String toString() {
         return "Contacts"; }
 }
+
+

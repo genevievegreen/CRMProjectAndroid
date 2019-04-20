@@ -7,6 +7,8 @@ package consoleKit;
 
 
 import static consoleKit.Console.getChoice;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -38,7 +40,7 @@ public class Menu implements MenuItem{
     // To "execute" a menu, we get the user to choose an option
     // and execute that option
     @Override
-    public void execute() {
+    public void execute() throws IOException {
         options.get(getChoice(options)).execute();
     }
 

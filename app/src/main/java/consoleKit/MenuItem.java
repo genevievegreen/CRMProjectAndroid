@@ -5,10 +5,12 @@
  */
 package consoleKit;
 
+import java.io.IOException;
+
 /**
  *
  * @author abbypetersen
  */
 public interface MenuItem {
-    public void execute();
+    public void execute() throws IOException;
 }
