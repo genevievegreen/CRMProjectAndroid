@@ -12,4 +12,5 @@
     <string name="date_of_event">Date Of Event:</string>
     <string name="want_a_reminder">Want A Reminder?</string>
     <string name="add_event">Add Event</string>
+    <string name="calendar">Calendar</string>
 </resources>

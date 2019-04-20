@@ -27,7 +27,6 @@ public class DisplayWeekActivity extends AppCompatActivity implements RecyclerVi
 
         Intent intent = getIntent();
         //currentWeek = (CurrentWeek) intent.getParcelableExtra(EXTRA_MESSAGE);
-        //****WE'RE IN CALENDAR BRANCH 2
         currentWeek = new CurrentWeek();
         for (Day d : currentWeek.getCurrentWeek()) {
             Log.d(TAG, d.getDaysDate());

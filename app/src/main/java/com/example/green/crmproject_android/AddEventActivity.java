@@ -98,7 +98,6 @@ public class AddEventActivity extends AppCompatActivity implements AdapterView.O
         //set spinner and adapter stuff
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        //****PROBLEM STARTS HERE*****
         spinner.setAdapter(adapter);
 
         spinner.setOnItemSelectedListener(this);
