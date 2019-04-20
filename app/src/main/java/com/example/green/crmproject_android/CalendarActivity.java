@@ -30,6 +30,9 @@ public class CalendarActivity extends AppCompatActivity {
     public static CurrentWeek currentWeek;
     private final String TAG = "TAG";
 
+    List<String> allEvents;
+    String[] eventStrings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +56,20 @@ public class CalendarActivity extends AppCompatActivity {
         c.add(Calendar.DAY_OF_MONTH, 2);
         currentWeek.getDayInWeek(5).getDaysEvents().addEvent(new Event("Dentist appt.", c, false));
 
+        //***************
+        // set up strings
+        allEvents = new ArrayList<>();
+        for (Day d : currentWeek.getCurrentWeek()) {
+            for (Event e : d.getDaysEvents().getEventList()) {
+                String s = d.getDaysDate() + ": " + e.getEventName();
+                allEvents.add(s);
+            }
+        }
+        int size = allEvents.size();
+        eventStrings = new String[size];
+        for (int i = 0; i < size; i++) {
+            eventStrings[i] = allEvents.get(i);
+        }
 
 
         // What the buttons do.
@@ -71,7 +88,7 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CalendarActivity.this, DisplayEventsActivity.class);
-                //intent.putExtra();
+                intent.putExtra(EXTRA_MESSAGE, eventStrings);
                 startActivity(intent);
             }
         });
