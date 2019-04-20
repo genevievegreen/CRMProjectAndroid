@@ -5,6 +5,7 @@
  */
 package consoleKit;
 
+import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.Deque;
 /**
@@ -30,7 +31,7 @@ public class MenuStack {
         menus.removeFirst();
     }
     
-    public void run() {
+    public void run() throws IOException {
         menus.getFirst().execute();
     }
 }
