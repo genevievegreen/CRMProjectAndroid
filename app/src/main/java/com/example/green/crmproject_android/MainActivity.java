@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import TaskPackage.Task;
@@ -17,9 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String EXTRA_NAME = "com.example.green.crmproject_android";
 
-    // Variables needed for DisplayWeekActivity
-    private static final String EXTRA_CALENDAR = "com.example.green.crmproject_android"; // NOT SURE IF I NEED THIS OR IF I SHOULD JUST USE EXTRA_NAME?
-    public static final CurrentWeek currentWeek = new CurrentWeek();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
-                //intent.putExtra(EXTRA_CALENDAR, currentWeek.getCurrentWeek());         <-- this is where you would pass whatever variables to new activity
+                //******TEST
+                //intent.putExtra();        // <-- this is where you would pass whatever variables to new activity
                 startActivity(intent);
             }
 

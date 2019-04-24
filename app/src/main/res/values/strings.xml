@@ -7,4 +7,10 @@
 
     <string name="button_addtask">Add Task</string>
     <string name="hint_TaskAdd">Enter Task Here</string>
+    <string name="enter_name_of_event">Enter Name Of Event:</string>
+    <string name="ex_graduation_day">Ex: \'Graduation Day\'</string>
+    <string name="date_of_event">Date Of Event:</string>
+    <string name="want_a_reminder">Want A Reminder?</string>
+    <string name="add_event">Add Event</string>
+    <string name="calendar">Calendar</string>
 </resources>

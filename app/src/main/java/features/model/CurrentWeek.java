@@ -5,17 +5,20 @@
  */
 package features.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.*;
 
 /**
  *
  * @author andrea
  */
-public class CurrentWeek {
+public class CurrentWeek implements Parcelable {
     Day today; // Today's Day.
     List<Day> currentWeek;     // List to hold Days of the week.
     
-    final int MAX_DAYS_IN_WEEK = 7; // Max size of currentWeek list.
+    //final int MAX_DAYS_IN_WEEK = 7; // Max size of currentWeek list.
     
 
     // Constructor. This is a little wonky so I will probably have to change this.
@@ -30,7 +33,24 @@ public class CurrentWeek {
             currentWeek.add(new Day(c));
         }
     }
-    
+
+    protected CurrentWeek(Parcel in) {
+        //Does anything need to go in here?**************
+        currentWeek = in.createTypedArrayList(Day.CREATOR);
+    }
+
+    public static final Creator<CurrentWeek> CREATOR = new Creator<CurrentWeek>() {
+        @Override
+        public CurrentWeek createFromParcel(Parcel in) {
+            return new CurrentWeek(in);
+        }
+
+        @Override
+        public CurrentWeek[] newArray(int size) {
+            return new CurrentWeek[size];
+        }
+    };
+
     // Getter for today.
     public Day getToday() {
         return today;
@@ -52,5 +72,19 @@ public class CurrentWeek {
             System.out.println(d.getDaysDate());
             System.out.println("Number of events: " + d.getDaysEvents().getListSize());
         }
+    }
+
+    // Get Day in Week
+    public Day getDayInWeek(int i) {
+       return currentWeek.get(i);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
     }
 }
